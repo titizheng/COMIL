@@ -55,5 +55,14 @@ DATA_ROOT_DIR/
     └── ...
 ```
 
+## Train COMIL
 
+Split the dataset.
+```
+python datasetsplitting.py --PATH_LABEL_CSV 
+```
 
+Training, validation, and testing of COMIL:
+```
+python mainfile.py --PATH_LABEL_CSV  --h5, csv, result,
+```
