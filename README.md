@@ -59,10 +59,30 @@ DATA_ROOT_DIR/
 
 Split the dataset.
 ```
-python datasetsplitting.py --PATH_LABEL_CSV 
+python datasetsplitting.py 
 ```
 
 Training, validation, and testing of COMIL:
 ```
-python mainfile.py --PATH_LABEL_CSV  --h5, csv, result,
+python mainfile.py 
+```
+
+
+## Acknowledgments
+* Thanks for [CLAM](https://github.com/mahmoodlab/CLAM) Library, [TransMIL](https://github.com/szc19990412/TransMIL) Library and [MIL_BASELINE](https://github.com/lingxitong/MIL_BASELINE), which helps us to quickly implement our ideas.
+
+
+## ✏️ Citation
+
+If you think this project is helpful, please feel free to leave a star⭐️ and cite our paper:
+
+```
+@inproceedings{COMIL,
+  title={Collaborative Optimization for Whole Slide Image Classification},
+  author={Tingting Zheng, Hongxun Yao, Kui Jiang, and Yi Xiao},
+  booktitle={},
+  pages={},
+  year={2025}
+}
+
 ```
