@@ -13,11 +13,11 @@
 ## Update
 - [2025/09/22] Uploading code
 
-## Pre-requisites:
+## Pre-requisites
 * Linux (Tested on Ubuntu 18.04)
 * NVIDIA GPU (Tested on 3090)
 
-## Dependencies:
+## Dependencies
 ```bash
 torch
 torchvision
@@ -28,6 +28,19 @@ scikit-learning
 pandas
 nystrom_attention
 admin_torch
+```
+
+
+## Data Preprocess
+
+we follow the CLAM's WSI processing solution (https://github.com/mahmoodlab/CLAM)
+
+```bash
+# WSI Segmentation and Patching
+python create_patches_fp.py --source DATA_DIRECTORY --save_dir RESULTS_DIRECTORY --patch_size 256 --preset bwh_biopsy.csv --seg --patch --stitch
+
+# Feature Extraction
+CUDA_VISIBLE_DEVICES=0,1 python extract_features_fp.py --data_h5_dir DIR_TO_COORDS --data_slide_dir DATA_DIRECTORY --csv_path CSV_FILE_NAME --feat_dir FEATURES_DIRECTORY --batch_size 512 --slide_ext .svs
 ```
 
 
@@ -55,9 +68,11 @@ DATA_ROOT_DIR/
     └── ...
 ```
 
+
+
 ## Train COMIL
 
-Split the dataset.
+Split the dataset
 ```
 python datasetsplitting.py 
 ```
@@ -69,10 +84,10 @@ python mainfile.py
 
 
 ## Acknowledgments
-* Thanks for [CLAM](https://github.com/mahmoodlab/CLAM) Library, [TransMIL](https://github.com/szc19990412/TransMIL) Library and [MIL_BASELINE](https://github.com/lingxitong/MIL_BASELINE), which helps us to quickly implement our ideas.
+* Thanks for [CLAM](https://github.com/mahmoodlab/CLAM) Library, [TransMIL](https://github.com/szc19990412/TransMIL) Library and [MIL_BASELINE](https://github.com/lingxitong/MIL_BASELINE) Library, which helps us to quickly implement our ideas.
 
 
-## ✏️ Citation
+## Citation
 
 If you think this project is helpful, please feel free to leave a star⭐️ and cite our paper:
 
